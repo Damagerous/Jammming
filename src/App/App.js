@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playListName: "myPlaylist",
+      playListName: "New PlayList",
       searchResults: [],
       playListTracks: [],
     };
@@ -21,7 +21,9 @@ class App extends React.Component {
   }
 
   addTrack(track) {
+    //Deletes duplicate songs
     let currentPlayList = this.state.playListTracks.filter(checkTrack => checkTrack.id !== track.id);
+
     let newPlayList = currentPlayList.concat(track);
     this.setState({ playListTracks: newPlayList });
   }
